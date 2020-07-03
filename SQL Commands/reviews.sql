@@ -1,0 +1,8 @@
+CREATE TABLE reviews (
+  id SERIAL PRIMARY KEY,
+  rating INTEGER NOT NULL,
+  moment TIMESTAMP NOT NULL,
+  comment VARCHAR NOT NULL,
+  book_id INTEGER REFERENCES books,
+  user_id INTEGER REFERENCES users
+);

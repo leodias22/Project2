@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Bookfinder
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col=sm">
+      <form class="" action="{{ url_for('welcome') }}">
+      <button type="submit" class="btn btn-primary">New Search</button>
+      </form>
+    </div>
+    <div class="col-sm"><h1>Bookfinder</h1>
+    </div>
+    <div class="col-sm">
+      <h5>Welcome {{ nome }}</h5>
+    </div>
+    <div class="col-sm">
+      <form class="" action="{{ url_for('logout') }}">
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+      <div class="list-group" id="list-tab" role="tablist">
+      <h4>(ID) - ISBN - TITLE - AUTHOR - PUBLICATION YEAR</h4>
+    {% for book in books %}
+      <a href="{{ url_for('detail', book_id=book.id) }}">(id:{{ book.id }}) - {{ book.isbn }} - {{ book.title }} - {{ book.author }} - {{ book.year }}</a>
+    {% else %}
+    <div class="row">
+      <div class="col-sm">Search ended without finding matching books</div>
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
