@@ -1,4 +1,4 @@
-# Project 1
+# Project 2 (old Project 1 in 2018 version of the course)
 
 Web Programming with Python and JavaScript
 
